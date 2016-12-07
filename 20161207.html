@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h1>ECMAScript 5基础复习总结</h1>
+
+		<h3>2.1JavaScript编程规范</h3>
+		<h4>1.通用命名规范</h4>
+		<p>所有变量必须是有意义的英文，严禁使用拼音;</p>
+		<p>变量命名采用小驼峰（第一个单字母小写，其余单词首字母大写）;</p>
+		<p>常量必须所有单词大写，并且每个单词间加下划线;</p>
+		<p>所有全局变量必须初始化;</p>
+		<h4>2.变量命名规范</h4>
+		<p>类型前缀+有意义的单词;</p>
+		<p>字符串：sXXX，如：sName;</p>
+		<p>数字：nXXX，如：nPage;</p>
+		<p>逻辑：bXXX，如：bChecked;</p>
+		<p>正则：rXXX，如：rDomain;</p>
+		<p>函数：fXXX，如：fGetlist;</p>
+		<p>DOM节点:dXXX,如：dDiv;</p>
+		<p>其他类型：oXXX，如：oButton;</p>
+		<p>循环变量:i,j,k以此类推;</p>
+		<h4>3、函数命名规范</h4>
+		<p>普通函数:动词+名词,如fGetlist、fGetVersion;</p>
+		<p>涉及逻辑返回值的函数:is、has、can,如:fisAdmin、fhasChild;</p>
+		<p>内部函数:_f+上面规则,如:fLoopCount;</p>
+
+		<h3>2.2 JavaScript运算符</h3>
+		<h4>+-[]{}~</h6>
+		<p>~1:[~]按位非:取反-1</p>
+		<p>+:+[] 结果是:0</p>
+		
+		<h3>2.3 程序结构控制-for循环</h3>
+		<p>1、格式:for(变量;表达式或值;表达式或值(最后执行)){执行体}</p>
+		<p>2、实例1:</p>
+		<pre>
+			for(var i=0;i<5;i++){
+				console.log(i);
+			}
+		</pre>
+		<p>结果:
+			<img src="http://image18.poco.cn/mypoco/myphoto/20161207/19/18442191220161207193409027.png" alt="" />
+		</p>
+		<p>3、实例2-矩阵:</p>
+		<pre>
+        var box = document.getElementById('box');
+		var str = "";
+		var n = 0;
+		for(var i = 0; i < 7; i++) {
+			for(var j = 0; j < 7; j++) {
+				n++;
+				if(n <= 3) {
+					str += "<div>" + " " + "</div>";
+				} else {
+					str += "<div>" + (n - 3) + "</div>";
+				}
+			}
+		}
+		box.innerHTML = str;
+		</pre>
+		<p>结果:
+			<img src="http://image18.poco.cn/mypoco/myphoto/20161207/19/18442191220161207193819019.png" alt="" />
+		</p>
+		
+		<h3>2.4 function3种声明</h3>
+		<pre>
+1.// 声明一个函数，并调用
+function func() {
+    alert(222222222);
+}
+func();
+		</pre>
+		<pre>
+2.// 使用函数的Lambda表达式定义函数，然后调用
+var func = function() {
+    alert(2222222);
+};
+func();
+		</pre>
+		<pre>
+3.//匿名调用
+(function(){alert(22222222)})();
+		</pre>
+	</body>
+
+</html>
