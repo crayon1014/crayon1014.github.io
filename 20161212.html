@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM事件</title>
+	</head>
+
+	<body>
+		<h1>5 DOM事件</h1>
+		<h3>5.1   节点事件</h3>
+		<pre><p onclick="alert('点我有惊喜')">我是P1</p></pre>
+		<h3>5.2 HTML DOM on事件</h3>
+		<pre>
+            var pp=document.getElementById('pp');
+			pp.onclick=function(){
+				alert('点我没惊喜')
+			}
+		</pre>	
+		<h3>5.3 HTML DOM W3C标准事件</h3>
+		<pre>
+			pp.addEventListener("click",clickHandler);
+			function clickHandler(e){
+				console.log(e.target);
+				alert("双12啦");
+			}
+		</pre>
+		<h3>5.4   实例</h3>
+		<p>
+			<img src="http://image18.poco.cn/mypoco/myphoto/20161212/19/18442191220161212193116048.png"/>
+			<img src="http://image18.poco.cn/mypoco/myphoto/20161212/19/18442191220161212193134038.png"/>
+		</p>
+		<p>
+			<img src="http://image18.poco.cn/mypoco/myphoto/20161212/19/18442191220161212193200067.png"/>
+			<img src="http://image18.poco.cn/mypoco/myphoto/20161212/19/1844219122016121219322207.png"/>
+		</p>
+		<h3>5.5    手机验证码</h3>
+		<p>
+			<img src="http://image18.poco.cn/mypoco/myphoto/20161212/19/18442191220161212193248020.png"/>
+			<img src="http://image18.poco.cn/mypoco/myphoto/20161212/19/18442191220161212193307099.png"/>
+		</p>
+		<h3>5.6    时间</h3>
+		<p>
+			<img src="http://image18.poco.cn/mypoco/myphoto/20161212/19/18442191220161212193323050.png"/>
+			<img src="http://image18.poco.cn/mypoco/myphoto/20161212/19/18442191220161212193347048.png"/>
+		</p>
+		<p><a href="index.html">返回目录</a></p>
+	</body>
+
+</html>
