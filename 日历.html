@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 350px;
+			}
+			
+			#box div {
+				width: 50px;
+				height: 50px;
+				border: 1px solid #fff;
+				float: left;
+				text-align: center;
+				line-height: 50px;
+				box-sizing: border-box;
+				background: #49483E;
+				color: #fff;
+			}
+			
+			#box div:hover {
+				background: #C7CACB;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<select id="selectYear" onchange="monthChange()">
+				<option value="2011">2011年</option>
+				<option value="2012">2012年</option>
+				<option value="2013">2013年</option>
+				<option value="2014">2014年</option>
+				<option value="2015">2015年</option>
+				<option value="2016">2016年</option>
+				<option value="2017">2017年</option>
+				<option value="2018">2018年</option>
+				<option value="2019">2019年</option>
+			</select>
+			<select id="selectMonth" onchange="monthChange()">
+				<option value="0">一月</option>
+				<option value="1">二月</option>
+				<option value="2">三月</option>
+				<option value="3">四月</option>
+				<option value="4">五月</option>
+				<option value="5">六月</option>
+				<option value="6">七月</option>
+				<option value="7">八月</option>
+				<option value="8">九月</option>
+				<option value="9">十月</option>
+				<option value="10">十一月</option>
+				<option value="11">十二月</option>
+			</select>
+		</div>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var today = new Date()
+			var selectMonth = document.getElementById('selectMonth');
+			var selectYear = document.getElementById('selectYear');
+			//设置当月默认值
+			selectYear.value = today.getFullYear();
+			selectMonth.value = today.getMonth();
+
+			function monthChange() {
+				var time = new Date(selectYear.value, selectMonth.value, 13);
+				var year = time.getFullYear();
+				var month = time.getMonth() + 1;
+				var date1 = time.getDate();
+
+				/*var span=document.getElementsByTagName('span');
+				span[0].innerText=year+"年"+month+"月"+date1+"日";*/
+				var box = document.getElementById('box');
+				var arr = ["一", "二", "三", "四", "五", "六", "日"];
+
+				function days1(year, month) {
+					return new Date(year, month, 0).getDate();
+				} //获取某月的天数
+				function firstday(year, month) {
+					return new Date(year, month - 1, 1).getDay();
+				} //获取某月第一天是周几
+				var days = days1(year, month); //当月天数
+				var firstday = firstday(year, month) - 1; //当月1号是周几
+				var str = "";
+				var n = 0;
+				var m = 0;
+
+				var previousTime = new Date(2016, selectMonth.value - 1, 13);
+				var previousMonth = previousTime.getMonth() + 1; //上个月的月份
+				var previousDays = days1(year, previousMonth); //上个月的天数
+
+				//生成日历表
+				for(var i = 0; i < 7; i++) {
+					str += "<div>" + arr[m] + "</div>";
+					m++;
+				}
+				for(var i = 0; i < 7; i++) {
+					for(var j = 0; j < Math.ceil((days + firstday) / 7); j++) {
+						n++;
+						if(n <= firstday) {
+							str += "<div style='color:gray;'>" + (n + previousDays - firstday) + "</div>";
+						} else if((n - firstday) <= days) {
+							str += "<div>" + (n - firstday) + "</div>";
+						} else {
+							str += "<div style='color:gray;'>" + (n - firstday - days) + "</div>";
+						}
+					}
+				}
+				box.innerHTML = str;
+			}
+			monthChange()
+		</script>
+	</body>
+
+</html>
