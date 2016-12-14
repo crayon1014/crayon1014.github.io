@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			/*#xxx{
+				position: absolute;
+			}*/
+		</style>
+	</head>
+	<body>
+		<!--<div id="xxx">
+			<p>x坐标: <span></span></p>
+		<p>y坐标: <span></span></p>
+		</div>-->
+		
+		
+		<canvas id="canvas" width="1000px" height="1000px"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById('canvas');
+			var ctx = canvas.getContext('2d');
+			
+			ctx.strokeStyle="#32180C";
+			ctx.fillStyle="#FFFFD9";
+			//左耳
+			ctx.lineWidth=5;
+			ctx.beginPath();
+			ctx.moveTo(380,160);
+			ctx.quadraticCurveTo(380,100,450,110);
+			ctx.fill();
+			ctx.stroke();
+			//右耳
+			ctx.beginPath();
+			ctx.moveTo(550,110);
+			ctx.bezierCurveTo(610,100,630,110,645,170);
+			ctx.fill();
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(615,115);
+			ctx.lineTo(600,140);
+			ctx.stroke();
+			//脸
+			ctx.lineWidth=10;
+			ctx.beginPath();
+			ctx.moveTo(500,350);
+			ctx.bezierCurveTo(800,330,650,100,500,100);
+			ctx.bezierCurveTo(350,100,220,330,500,350);
+			ctx.fill();
+			ctx.stroke();
+			//左眉
+			ctx.lineWidth=5;
+			ctx.beginPath();
+			ctx.moveTo(415,125);
+			ctx.lineTo(435,130);
+			ctx.stroke();
+			//右眉
+			ctx.beginPath();
+			ctx.moveTo(560,140);
+			ctx.quadraticCurveTo(570,130,580,140);
+			ctx.stroke();
+			//腮红
+			ctx.fillStyle="#FFCDE7"
+			ctx.beginPath();
+			ctx.moveTo(350,215);
+			ctx.bezierCurveTo(350,200,400,200,400,215);
+			ctx.bezierCurveTo(400,230,350,230,350,215);
+			ctx.fill();
+			
+			ctx.beginPath();
+			ctx.moveTo(560,220);
+			ctx.bezierCurveTo(560,200,625,200,625,220);
+			ctx.bezierCurveTo(625,240,560,240,560,220);
+			ctx.fill();
+			//左眼
+			ctx.fillStyle="#32180C";
+			ctx.beginPath();
+			ctx.arc(420,205,25,0,2*Math.PI);
+			ctx.fill();
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(405,185);
+			ctx.lineTo(405,175);
+			ctx.stroke();
+			
+			ctx.lineWidth=1;
+			ctx.fillStyle="#fff";
+			ctx.beginPath();
+			ctx.arc(430,190,5,0,2*Math.PI);
+			ctx.fill();
+			ctx.stroke();
+			//右眼
+			ctx.fillStyle="#32180C";
+			ctx.beginPath();
+			ctx.arc(545,210,32,0,2*Math.PI);
+			ctx.fill();
+			ctx.stroke();
+			
+			ctx.lineWidth=5;
+			ctx.beginPath();
+			ctx.moveTo(528,185);
+			ctx.lineTo(522,175);
+			ctx.stroke();
+			
+			ctx.lineWidth=1;
+			ctx.fillStyle="#fff";
+			ctx.beginPath();
+			ctx.arc(555,190,5,0,2*Math.PI);
+			ctx.fill();
+			ctx.stroke();
+			//嘴巴
+			ctx.fillStyle="#32180C";
+			ctx.beginPath();
+			ctx.arc(475,228,5,0,2*Math.PI);
+			ctx.fill();
+			ctx.stroke();
+			
+			ctx.lineWidth=2;
+			ctx.beginPath();
+			ctx.moveTo(475,230);
+			ctx.quadraticCurveTo(465,245,455,230);
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(475,230);
+			ctx.quadraticCurveTo(485,245,500,230);
+			ctx.stroke();
+			
+			//胡须
+			ctx.lineWidth=5;
+			ctx.beginPath();
+			ctx.moveTo(335,220);
+			ctx.lineTo(320,220);
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(333,240);
+			ctx.lineTo(320,240);
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(335,260);
+			ctx.lineTo(322,265);
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(650,230);
+			ctx.lineTo(700,240);
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(650,250);
+			ctx.lineTo(695,265);
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(650,270);
+			ctx.lineTo(692,290);
+			ctx.stroke();
+			//爱心
+			ctx.strokeStyle="#32180C";
+			ctx.fillStyle="#FF0000";
+			ctx.lineWidth=10;
+			ctx.beginPath();
+			ctx.moveTo(465,290);
+			ctx.bezierCurveTo(300,240,350,400,465,425);
+			ctx.bezierCurveTo(550,400,650,240,465,290);
+			ctx.fill();
+			ctx.stroke();
+		</script>
+		
+		
+		<!--<script>
+			var sp=document.getElementsByTagName('span');
+			window.addEventListener("mousemove",moveHandler);
+			function moveHandler(e){
+				e.preventDefault();
+				sp[0].innerText=e.clientX;
+				sp[1].innerText=e.clientY;
+			}
+		</script>-->
+	</body>
+</html>
