@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+		<h3>8.1 JS面向对象</h3>
+		<h4>8.1.1 对象的创建及常用的操作</h4>
+		<p>第一种是使用new运算符</p>
+		<pre>
+例子:var obj = object();
+     obj.name = "puyao";
+     obj.age = 22;
+     obj.address = "杭州";
+		</pre>
+		<p>第二种是我们常用的字面量</p>
+		<pre>
+例子:var obj ={
+        name ="puyao";
+        age = 22;
+        address = "杭州";  
+      };
+		</pre>
+		<p>第三种是简单方式(传统赋值方式)</p>
+		<pre>
+例子:var obj ={};
+     obj.name = "puyao";
+     obj.age = 22;
+     obj.address = "杭州";
+		</pre>
+		<h4>8.1.2 属性的调用</h4>
+		<p>调用的方法:</p>
+		<pre>
+alert(obj.name + " " +obj.age);//返回“puyao 22”
+另一种调用方法:
+
+alert(obj['name'] + " " +obj['age']);
+		</pre>
+		<h4>8.1.3 创建对象</h4>
+		<pre>
+例子: var obj = new object();
+      obj.name = "puyao";
+      obj.age = 22;
+      obj.name = "杭州";
+		</pre>
+		<h4>8.1.4 构造函数(构造方法)</h4>
+		<pre>
+例子:  function user(name,age){
+         this.name = name;
+         this.age = age;
+         this.show = function(){
+          return this.name + " " +this.age;
+ 
+       };
+
+    }
+		</pre>
+		<h3>8.2 XHTML</h3>
+		<p>XHTML 是更严谨更纯净的 HTML 版本。</p>
+		<p>基本的文档结构是这样的：</p>
+		<p><img src="http://image18.poco.cn/mypoco/myphoto/20161215/19/18442191220161215194405074.png"/></p>
+		<h3>8.3 SVG</h3>
+		<h4>8.3.1 SVG在html中</h4>
+		<p><img src="http://image18.poco.cn/mypoco/myphoto/20161215/19/18442191220161215194428082.png"/></p>
+		<h4>8.3.2 SVG形状</h4>
+		<p>矩形 rect </p>
+		<p>圆形 circle</p>
+		<p>椭圆 ellipse</p>
+		<p>线 line</p>
+		<p>折线 polyline</p>
+		<p>多边形 polygon</p>
+		<p>路径 path</p>
+		<h3>8.3 画猫实例</h3>
+		<pre>
+1、用两条三次方贝塞尔曲线画出脸。
+2、用一条三次方贝塞尔曲线分别画出两个耳朵。
+3、用直线和二次贝塞尔曲线画眉毛。
+4、用直线和圆画眼睛。
+5、用两条三次方贝塞尔曲线画出椭圆形的腮红。
+6、用直线画胡子。
+7、用两条三次方贝塞尔曲线画爱心。
+8、用三次方贝塞尔曲线和直线画出身子。
+		</pre>
+		<p><img src="http://image18.poco.cn/mypoco/myphoto/20161215/19/1844219122016121519444808.png"/></p>
+		<p><a href="index.html">返回目录</a></p>
+	</body>
+</html>
