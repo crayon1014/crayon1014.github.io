@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				widows: 800px;
+				height: 449.333px;
+				position: relative;
+			}
+			
+			#bar {
+				width: 600px;
+				height: 10px;
+				background: #fff;
+				position: absolute;
+				bottom: 30px;
+				left: 100px;
+				position: relative;
+				border-radius: 10px;
+			}
+			
+			#proBar {
+				width: 0px;
+				height: 10px;
+				background: #3388FF;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 2;
+				border-radius: 10px;
+			}
+			
+			#buffBar {
+				width: 0px;
+				height: 10px;
+				background: #C2CDF8;
+				position: absolute;
+				left: 0;
+				top: 0;
+				border-radius: 10px;
+			}
+			
+			#btn1 {
+				width: 14px;
+				height: 14px;
+				border: 1px solid #C7CACB;
+				background: #fff;
+				position: absolute;
+				left: -8px;
+				top: -3px;
+				z-index: 5;
+				border-radius: 14px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<video src="files/婚礼现场.webm" id="videos" width="800"></video>
+			<div id="bar">
+				<div id="buffBar"></div>
+				<div id="proBar"></div>
+				<div id="btn1"></div>
+			</div>
+		</div>
+
+		<button id="btn">播放</button>
+		<!--<input type="text" name="" id="ctxt" value="" />
+		<input type="text" name="" id="dtxt" value="" />-->
+
+		<script type="text/javascript">
+			var videos = document.getElementById('videos');
+			var btn = document.getElementById('btn');
+			/*var ctxt = document.getElementById('ctxt');
+			var dtxt = document.getElementById('dtxt');*/
+			var bar = document.getElementById('bar');
+			var proBar = document.getElementById('proBar');
+			var buffBar = document.getElementById('buffBar');
+			var btn1 = document.getElementById('btn1');
+			var time;
+			//播放按钮
+			btn.addEventListener("click", clickHandler1);
+			function clickHandler1() {
+				clearInterval(time);
+				if(btn.innerText == "播放") {
+					videos.play();
+					btn.innerText = "暂停";
+				} else {
+					videos.pause();
+					btn.innerText = "播放";
+				}
+				time = setInterval(function() {
+					var totalTime = videos.duration;
+					var currentTime = videos.currentTime;
+					var TimeRanges = videos.buffered;
+					var buffTime=TimeRanges.end(TimeRanges.length-1);
+					/*ctxt.value = videos.currentTime;
+					dtxt.value = videos.duration;*/
+					proBar.style.width = currentTime / totalTime * 600 + "px";
+					buffBar.style.width = buffTime / totalTime * 600 + "px";
+					btn1.style.left = currentTime / totalTime * 600 - 8 + "px";
+				}, 300)
+			}
+		</script>
+	</body>
+
+</html>
