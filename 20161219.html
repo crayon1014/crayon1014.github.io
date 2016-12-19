@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h3>10.1 闭包this指向</h3>
+		<h4>10.1.1 全局指向Global -- Window -- BOM -- Browser Object Model</h4>
+		<pre>
+函数直接在全局中调用时，this指向Window
+var num=10;
+function foo(){
+	this.num=1;
+}
+foo();
+alert(num);
+		</pre>
+		<h4>10.1.2 对象</h4>
+		<pre>
+			this指向对象
+			var num=3;
+			var obj={};
+			obj.num=5;
+			obj.f=function(){
+				alert(this.num);
+			}
+			obj.f();
+			alert("全局num："+num);
+		</pre>
+		<h4>10.1.3 函数返回指向</h4>
+		<pre>
+			var num=1;
+			function foo() {
+				return function () {
+					return this.num = 1
+				}
+			}
+			var f=foo();
+			console.log(f());
+		</pre>
+		<h4>10.1.4 apply()方法</h4>
+		<pre>
+			//改变函数内部this指向的对象
+			var o={num:400};
+			var num=10;
+			var obj={};
+			obj.num=1;
+			obj.f=function(){
+				alert(this.num);
+			}
+			//如果第一个参数为空，函数内部this指向window
+			obj.f.apply(obj);
+			obj.f.apply(o);
+		</pre>
+		<h4>10.1.5 问题1：this指向Window</h4>
+		<pre>
+			var say="Hello World!";
+			var obj={};
+			obj.say="Hello Object!";
+			obj.foo=function(){
+				return function(){
+					return this.say;
+				}
+			}
+			alert(obj.foo()());
+		</pre>
+		<h4>10.1.6 问题2：this指向Object</h4>
+		<pre>
+			var say="Hello World!";
+			var obj={};
+			obj.say="Hello Object!";
+			obj.foo=function(){
+				var that=this;
+				return function(){
+					return that.say;
+				}
+			}
+			alert(obj.foo()());
+		</pre>
+		<h3>10.2 object-apply方法</h3>
+		<pre>
+			var o = {num:400};
+			var num = 10;
+			var obj={};
+			obj.num=1;
+			obj.f=function(){
+				alert(this.num);
+			}
+			
+			//如果第一个参数为空，函数内部this指向window
+			obj.f.apply(obj);//1
+			obj.f.apply(o);//400
+			obj.f.call(o);//400
+		</pre>
+		<h3>10.3 原型</h3>
+		<pre>
+			var o={}
+			var arr=[1,2,3];
+			o.push=Array.prototype.push;
+			o.push("nihao");
+			o.push("nice to meet you");
+			console.log(o);//{0:"nihao",1:"nice to meet you"}
+		</pre>
+		<p><a href="视频.html">视频</a></p>
+		<p><a href="index.html">返回目录</a></p>
+		
+	</body>
+
+</html>
