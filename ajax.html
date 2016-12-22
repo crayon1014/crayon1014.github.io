@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<button id="btn">点我显示数据</button>
+		<div id="div">
+			<table id="table" border="1">
+				显示区域
+			</table>
+		</div>
+
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			var div = document.getElementById("div");
+			var table = document.getElementById("table");
+
+			var xhr = new XMLHttpRequest();
+
+			btn.onclick = function(e) {
+				xhr.open("GET", "ajax.json");
+				xhr.send(null);
+			}
+
+			xhr.onreadystatechange = function(msg) {
+				if(xhr.readyState == 4) {
+					if(xhr.status == 200) {
+						var obj = JSON.parse(xhr.responseText);
+						var l = obj.length;
+						for(var i = 0; i < l; i++) {
+							var tr = table.insertRow();
+							for(var j in obj[i]) {
+								var td = tr.insertCell();
+								td.innerHTML = obj[i][j];
+							}
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>
