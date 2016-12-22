@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>十三、 20161222ajax</h1>
+		<h3>13.1 ajax是什么?</h3>
+		<p>asynchronous javascript and xml:异步的javascript和xml.</p>
+		
+		<h3>13.2 ajax对象</h3>
+		<pre>
+(1)如何获得ajax对象?
+
+XMLHttpRequest并没有标准化，要区分浏览器:
+
+function getXhr(){
+
+var xhr;
+
+if(window.XMLHttpRequest){
+
+//非ie浏览器
+
+xhr = new XMLHttpRequest();
+
+}else{
+
+//ie
+
+xhr = new ActiveXObject('Microsoft.XMLHttp');
+
+}
+
+}
+(2)ajax对象的属性
+
+a, onreadystatechange : 绑订一个事件处理函数(注册监听器),当
+
+                                ajax对象的readyState值发生了改变(比如，
+
+                                从0-->1)，就会产生readystatechange事
+
+                                件。
+
+b, responseText: 获得服务器返回的文本
+
+c, responseXML:获得服务器返回的xml数据
+
+d, status:获得状态码
+
+e, readyState:ajax对象在与服务器进行通讯时，通过readyState属
+
+                       性值可以获取该对象的通讯的状态，其属性有5个
+
+                      (0,1,2,3,4),当属性值为4时，表示ajax对象已经获得了
+
+                      服务器返回的所有的数据。
+
+            0:(未初始化)对象已建立（获得），但是尚未初始化（尚未调用open
+
+                方法）
+
+            1：（初始化）对象已建立，调用了open方法但尚未调用send方法。
+
+            2：（发送数据）send方法一调用。
+
+            3：（数据传送中）已接收部分数据。
+
+            4：（响应结束）接收了所有的数据。
+(3)ajax编程的基本步骤
+
+step1, 先获得ajax对象
+
+var xhr = getXhr();
+
+step2, 发送请求
+
+xhr.open(请求方式,请求地址,异步还是同步);
+
+请求方式: get/post
+		</pre>
+		
+		<h3>13.3 ajax编写</h3>
+		<pre>
+// step1，获得ajax对象
+
+var xhr = getXhr();
+
+// step2, 发请求
+
+var uri = 'check_code.do?checkcode=' + $F('checkcode');
+
+xhr.open('get', encodeURI(uri), false);// 建立连接
+
+xhr.onreadystatechange = function() {// 绑定事件处理函数（注册监听器）
+
+// 只有ajax对象的readyState值为4时，才能获得服务器返回的数据。
+
+if (xhr.readyState == 4) {
+
+if (xhr.status  == 200) {
+
+// 获得服务器返回的文本数据
+
+var txt = xhr.responseText;
+		</pre>
+		<p><a href="index.html">返回目录</a></p>
+	</body>
+</html>
