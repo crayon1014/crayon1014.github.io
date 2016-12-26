@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>20161226jquery</h1>
+		<h3>1 选择器</h3>
+		<pre>
+/****************ID选择器**********************/
+        $("#span1").click(function () {
+            $("#id1").toggleClass("class");
+        });
+
+        $("#span2").click(function () {
+            $("#id2").toggleClass("class");
+        });
+
+        $("#span3").click(function () {
+            $("#id3").toggleClass("class");
+        });
+
+
+
+        /****************Class选择器**********************/
+        $("#span4").click(function () {
+            $(".class1").toggleClass("class");
+        });
+
+        $("#span5").click(function () {
+            $(".class2").toggleClass("class");
+        });
+
+
+        /****************标签选择器**********************/
+        $("#span6").click(function () {
+            $("span").toggleClass("class");
+        });
+
+
+        /****************组合选择器**********************/
+        $("#span7").click(function () {
+            $("#id1,#id3,.class1").toggleClass("class");
+        });
+
+        /****************后代（家族）选择器**********************/
+        $("#span8").click(function () {
+            $("ul span").toggleClass("class");
+        });
+
+        /****************子代（父子）选择器**********************/
+        $("#span9").click(function () {
+            $("#li3>#id1").toggleClass("class");
+        });
+        $("#span10").click(function () {
+            $("#li3>span").toggleClass("class");
+        });
+
+        /****************相邻元素选择器**********************/
+        $("#span11").click(function () {
+            $("#id1+span").toggleClass("class");
+        });
+
+
+        /****************兄弟(同辈)元素选择器**********************/
+        $("#span12").click(function () {
+            $("#id1~span").toggleClass("class");
+        });
+
+
+        /****************过滤选择器**********************/
+        $("#span13").click(function () {
+            $(".class1:even").toggleClass("class");
+        });
+        $("#span14").click(function () {
+            $(".class1:odd").toggleClass("class");
+        });
+
+        $("#span15").click(function () {
+            $("#li5 span:has(a)").toggleClass("class");
+        });
+
+
+        /****************属性选择器**********************/
+        $("#span16").click(function () {
+            $("input[name='input1']").toggleClass("class");
+        });
+        $("#span17").click(function () {
+            $("input[name!='input2']").toggleClass("class");
+        });
+        $("#span18").click(function () {
+            $("input[name*='input3']").toggleClass("class");
+        });
+        $("#span19").click(function () {
+            $("input[name$='4']").toggleClass("class");
+        });			
+		</pre>
+		<h3>2 事件</h3>
+		<pre>
+    $(window).resize(function () {
+        $("#span").text(parseInt($("#span").text()) + 1);
+    });
+
+
+    $(window).scroll(function () {
+        $("#span").text(parseInt($("#span").text()) + 1);
+    });
+
+
+    $(function () {
+        $("#click1").click(function () {
+            $("#click1").toggleClass("class1");
+        });
+
+        $("#click1").hover(function () {
+            $("#click1").toggleClass("class1",true);
+        },function () {
+            $("#click1").toggleClass("class1",false);
+        });
+
+        $("#inpt").focus(function () {
+            $("#inpt").toggleClass("class1",true);
+        });
+        $("#inpt").blur(function () {
+            $("#inpt").toggleClass("class1",false);
+        });
+
+        $("#inpt2").keydown(function () {
+            $("#inpt2").toggleClass("class1");
+        });
+        $("#inpt3").keyup(function () {
+            $("#inpt3").toggleClass("class1");
+        });
+        $("#inpt4").keypress(function () {
+            $("#inpt4").toggleClass("class1");
+        });
+
+
+
+        $("#sp1").on("click",function () {
+            $("#sp1").toggleClass("class1");
+        });
+        $("#sp2").bind("click",function () {
+            $("#sp2").toggleClass("class1");
+        });
+        $("#sp3").click(function () {
+            alert("我要触发trigger事件了");
+            $("#sp1").trigger("click");
+        });
+        $("#sp4").click(function () {
+            $("#ds").append('<span onclick="alert(123)";>我是来代替live的</span>');
+        });			
+		</pre>
+		<p></p><a href="index.html">返回目录</a></p>
+	</body>
+</html>
