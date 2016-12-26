@@ -98,16 +98,17 @@
 		</pre>
 		<h3>2 事件</h3>
 		<pre>
+	/****************窗口大小**********************/
     $(window).resize(function () {
         $("#span").text(parseInt($("#span").text()) + 1);
     });
 
-
+	/****************滚动条**********************/
     $(window).scroll(function () {
         $("#span").text(parseInt($("#span").text()) + 1);
     });
 
-
+	/****************鼠标点击悬停**********************/
     $(function () {
         $("#click1").click(function () {
             $("#click1").toggleClass("class1");
@@ -118,7 +119,8 @@
         },function () {
             $("#click1").toggleClass("class1",false);
         });
-
+	
+	/****************聚焦失焦**********************/
         $("#inpt").focus(function () {
             $("#inpt").toggleClass("class1",true);
         });
@@ -126,6 +128,7 @@
             $("#inpt").toggleClass("class1",false);
         });
 
+	/****************键盘**********************/
         $("#inpt2").keydown(function () {
             $("#inpt2").toggleClass("class1");
         });
