@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<h1>20161227jqdom</h1>
+	<pre>
+			$(function() {
+				$("#btn").click(function() {
+					//$("#img").attr("src","img/ball.png");//设置或返回被选元素的属性值
+					//                  console.log($("#div").html("hello"));//取得第一个匹配元素的html内容
+					//                  console.log($("#div").val("hello"));//获得匹配元素的当前值
+					//                  console.log($("#div").text("&lt;span&gt;hello&lt;/span&gt;"));//用于设置元素内容的文本
+					//                  console.log($("#div").html("&lt;span&gt;hello&lt;/span&gt;"));
+
+					//后内添加
+					//                  console.log($("#div").append("&lt;span&gt;hahaha&lt;/span&gt;"));
+					//                  console.log($("&lt;ul&gt;&lt;li&gt;hello&lt;/li&gt;&lt;/ul&gt;").appendTo("#div"));
+
+					//前内添加
+					//                  console.log($("#div").prepend("&lt;ul&gt;&lt;li&gt;hello&lt;/li&gt;&lt;/ul&gt;"));
+					//                  console.log($("&lt;ul&gt;&lt;li&gt;hello&lt;/li&gt;&lt;/ul&gt;").prependTo("#div"));
+
+					//后外添加
+					//                  console.log($("#div").after("&lt;ul&gt;&lt;li&gt;hello&lt;/li&gt;&lt;/ul&gt;"));
+					//                  console.log($("&lt;ul&gt;&lt;li&gt;hello&lt;/li&gt;&lt;/ul&gt;").insertAfter("#div"));
+
+					//前外添加
+					//                  console.log($("#div").before("&lt;ul&gt;&lt;li&gt;hello&lt;/li&gt;&lt;/ul&gt;"));
+					//                  console.log($("&lt;ul&gt;&lt;li&gt;hello&lt;/li&gt;&lt;/ul&gt;").insertBefore("#div"));
+					//                  console.log($("#div").empty());//清空
+					//                  console.log($("#div").remove());//移除
+					//console.log($("#div").clone());//克隆
+					// 					console.log($("#div").css({"background":"#8B0000","color":"green"}));//添加css样式
+					//                  console.log($("#div").css("background",function(_index,_value){
+					//                  	return _value = "blue";
+					//                  }));
+					//console.log($("#div").innerHeight());//内高
+					//console.log($("#div").outerHeight());//外高
+					//$("#div").toggle();//显示隐藏
+					//$("#div").slideToggle();//滑动
+					//$("#div").fadeToggle();//淡入淡出
+
+					//自定义动画
+					/*$("#div").animate({
+						width: "90%",
+						height: "100%",
+						fontSize: "10em",
+						borderWidth: 10
+					}, 1000);*/
+					
+					var _data={};
+					_data.pageNum=1;
+					_data.pageSize=20;
+					$.ajax({
+						url:"http://www.hemijiaoyu.com/service/searchApply",
+						type:"GET",
+						dataType:"json",
+						data:_data,
+						success:function(msg){
+							console.log("服务器返回成功："+msg);
+							$("#div").html(msg);
+						},error:function(error){
+							console.log("错误："+error);
+						}
+					})
+
+				})
+				
+			})
+	</pre>
+	<p><a href="jqAJAX">实例</a></p>
+	<p></p><a href="index.html">返回目录</a></p>
+	</body>
+</html>
