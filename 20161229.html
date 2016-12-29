@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>20161229 ajax上传</h1>
+	 	<h3>ajax()方法</h3>
+	 	<p>ajax()方法是jQuery底层的ajax实现，通过HTTP请求加载远程数据。</p>
+	 	<pre>
+$.ajax({
+type: "GET",
+url: "handleAjaxRequest.action",
+data: {paramKey:paramValue},
+async: true,
+dataType:"json",
+success: function(returnedData) {
+alert(returnedData);
+//请求成功后的回调函数
+//returnedData--由服务器返回，并根据 dataType 参数进行处理后的数据；
+//根据返回的数据进行业务处理
+},
+error: function(e) {
+alert(e);
+//请求失败时调用此函数
+}
+});
+}
+	 	</pre>
+	 	
+   <p>参数说明:
+　　<p>type:请求方式，“POST”或者“GET”,默认为“GET”。
+　　<p>url:发送请求的地址。
+　　<p>data:要向服务器传递的数据，已key:value的形式书写（id:1）。GET请求会附加到url后面。
+　　<p>async:默认true,为异步请求，设置为false,则为同步请求。
+　　<p>dataType:预期服务器返回的数据类型,可以不指定。有xml、html、text等。
+　　<p>在开发中，使用以上参数已可以满足基本需求。
+　　<p>如果需要向服务器传递中文参数，可将参数写在url后面，用encodeURI编码就可以了
+
+		<pre>
+
+
+	&lt;body&gt;
+		&lt;div id="box" style="margin: auto;"&gt;
+			&lt;h1&gt;禾米科技免费培训申请表&lt;/h1&gt;
+			&lt;h5&gt;方式一、在线填写（如果信息提交失败或者您使用的是IE10版本以下的浏览器请选择方式二）&lt;/h5&gt;
+			&lt;form action="" method="post"&gt;
+				&lt;table border="1" cellspacing="" cellpadding=""&gt;
+					&lt;tr&gt;
+						&lt;td style="text-align: left;" colspan=" 6 "&gt;个人信息及联系方式&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td width="120"&gt;*姓名&lt;/td&gt;
+						&lt;td class="txt"&gt;&lt;input type="text" name="" id="name" value="" class="inputText"/&gt;&lt;/td&gt;
+						&lt;td width="120"&gt;*性别&lt;/td&gt;
+						&lt;td class="txt"&gt;
+							&lt;select name="" id="sex"&gt;
+								&lt;option value=""&gt;男&lt;/option&gt;
+								&lt;option value=""&gt;女&lt;/option&gt;
+							&lt;/select&gt;
+						&lt;/td&gt;
+						&lt;td width="120"&gt;*出生年月&lt;/td&gt;
+						&lt;td class="txt"&gt;
+							&lt;input type="month" name="" id="" value="" /&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td width="120"&gt;*手机号码&lt;/td&gt;
+						&lt;td class="txt"&gt;&lt;input type="number" name="" id="mobile" value="" class="inputText"/&gt;&lt;/td&gt;
+						&lt;td width="120"&gt;*政治面貌&lt;/td&gt;
+						&lt;td class="txt"&gt;
+							&lt;select name="" id="political"&gt;
+								&lt;option value=""&gt;团员&lt;/option&gt;
+								&lt;option value=""&gt;党员&lt;/option&gt;
+								&lt;option value=""&gt;群众&lt;/option&gt;
+							&lt;/select&gt;
+						&lt;/td&gt;
+						&lt;td width="120"&gt;*QQ&lt;/td&gt;
+						&lt;td class="txt"&gt;&lt;input type="number" name="" id="QQ" value="" class="inputText"/&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td width="120"&gt;*学院&lt;/td&gt;
+						&lt;td class="txt"&gt;&lt;input type="text" name="" id="college" value="" class="inputText"/&gt;&lt;/td&gt;
+						&lt;td width="120"&gt;系&lt;/td&gt;
+						&lt;td class="txt"&gt;&lt;input type="text" name="" id="faculty" value="" class="inputText"/&gt;&lt;/td&gt;
+						&lt;td width="120"&gt;*专业&lt;/td&gt;
+						&lt;td class="txt"&gt;&lt;input type="text" name="" id="major" value="" class="inputText"/&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td style="text-align: left;" colspan=" 6 "&gt;家庭联系方式&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td width="120"&gt;父亲姓名&lt;/td&gt;
+						&lt;td colspan=" 2 "&gt;&lt;input type="text" name="" id="fatherName" value="" class="inputText"/&gt;&lt;/td&gt;
+						&lt;td width="120"&gt;父亲电话&lt;/td&gt;
+						&lt;td colspan=" 2 "&gt;&lt;input type="text" name="" id="fatherMobile" value="" class="inputText"/&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td width="120"&gt;母亲姓名&lt;/td&gt;
+						&lt;td colspan=" 2 "&gt;&lt;input type="text" name="" id="motherName" value="" class="inputText"/&gt;&lt;/td&gt;
+						&lt;td width="120"&gt;母亲电话&lt;/td&gt;
+						&lt;td colspan=" 2 "&gt;&lt;input type="text" name="" id="motherMobile" value="" class="inputText"/&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td width="120"&gt;*家庭地址&lt;/td&gt;
+						&lt;td colspan=" 5 "&gt;&lt;input type="text" name="" id="address" value="" class="inputText"/&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td width="120"&gt;*信息来源&lt;/td&gt;
+						&lt;td colspan=" 5 " style="text-align: left;" id="source"&gt;
+							&lt;input type="radio" name="1" id="" value="" /&gt;1、熟人介绍
+							&lt;input type="radio" name="1" id="" value="" /&gt;2、杂志
+							&lt;input type="radio" name="1" id="" value="" /&gt;3、媒体广告
+							&lt;input type="radio" name="1" id="" value="" /&gt;4、其它
+						&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td style="text-align: left;" colspan=" 6 "&gt;个人能力与自我评价（说明自己所学的专业知识与能力、获奖情况以及自己的优点与兴趣爱好）&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr style="height: 70px;"&gt;
+						&lt;td width="120"&gt;*专业能力描述&lt;/td&gt;
+						&lt;td colspan=" 5 "&gt;&lt;input type="text" name="" id="ablity" value="" class="inputText"/&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr style="height: 70px;"&gt;
+						&lt;td width="120"&gt;*自我评价描述&lt;/td&gt;
+						&lt;td colspan=" 5 "&gt;&lt;input type="text" name="" id="self" value="" class="inputText"/&gt;&lt;/td&gt;
+					&lt;/tr&gt;
+
+				&lt;/table&gt;
+				&lt;input type="submit" value="提交" id="btn"/&gt;
+				&lt;h5&gt;方式二、&lt;a href=""&gt;申请表下载&lt;/a&gt;填写好后请把申请表格及时发送到hemikeji.hr@hemikeji.com，以便联系面试，谢谢！&lt;/h5&gt;
+			&lt;/form&gt;
+		&lt;/div&gt;
+		&lt;script src="lib/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+		&lt;script type="text/javascript"&gt;
+			$(document).ready(function() {
+				$("#btn").click(function() {
+					if($("#name").val().length &lt; 2 || $("#name").val().length &gt; 20) {
+						alert("姓名不合法")
+						return false;
+					}
+					if($("#fatherName").val().length &lt; 2 || $("#fatherName").val().length &gt; 20) {
+						alert("父亲姓名不合法")
+						return false;
+					}
+					if($("#motherName").val().length &lt; 2 || $("#motherName").val().length &gt; 20) {
+						alert("母亲姓名不合法")
+						return false;
+					}
+
+					var num = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+					if(!num.test($("#mobile").val())) {
+						alert("手机号格式错误");
+						return false;
+					}
+					if(!num.test($("#fatherMobile").val())) {
+						alert("父亲手机号格式错误");
+						return false;
+					}
+					if(!num.test($("#motherMobile").val())) {
+						alert("母亲手机号格式错误");
+						return false;
+					}
+
+					if($("#QQ").val().length &lt; 6 || $("#QQ").val().length &gt; 11) {
+						alert("QQ格式错误");
+						return false;
+					}
+
+					if($("#college").val().length &lt; 2 || $("#college").val().length &gt; 100) {
+						alert("学院格式错误");
+						return false;
+					}
+					if($("#faculty").val().length &lt; 2 || $("#faculty").val().length &gt; 100) {
+						alert("系格式错误");
+						return false;
+					}
+					if($("#major").val().length &lt; 2 || $("#major").val().length &gt; 100) {
+						alert("专业格式错误");
+						return false;
+					}
+					if($("#address").val().length &lt; 2 || $("#address").val().length &gt; 100) {
+						alert("家庭地址格式错误");
+						return false;
+					}
+
+					var m = 0;
+					for(var i = 0; i &lt; $("input[name='1']").length; i++) {
+						if($("input[name='1']")[i].checked == true) {
+							m++;
+						}
+					}
+					if(m == 0) {
+						alert("信息来源未选择");
+						return false;
+					}
+
+					if($("#ablity").val().length &lt; 10 || $("#ablity").val().length &gt; 200) {
+						alert("专业能力描述必须多余10字，少于200字");
+						return false;
+					}
+					if($("#self").val().length &lt; 10 || $("#self").val().length &gt; 200) {
+						alert("自我评价描述必须多余10字，少于200字");
+						return false;
+					}
+
+					var _url = "http://www.hemijiaoyu.com/service/addApply";
+					var _data = {};
+					var birthday = $("#birthday").val().split("-")
+					birthday1 = birthday[0] + birthday[1];
+
+					_data.name = $("#name").val();
+					_data.sex = $("#sex option:selected").text();
+					_data.birthday = birthday1;
+					_data.mobile = $("#mobile").val();
+					_data.political = $("#political option:selected").text();
+					_data.college = $("#college").val();
+					_data.qq = $("#QQ").val();
+					_data.faculty = $("#faculty").val();
+					_data.major = $("#major").val();
+					_data.fatherName = $("#fatherName").val();
+					_data.fatherMobile = $("#fatherMobile").val();
+					_data.motherName = $("#motherName").val();
+					_data.motherMobile = $("#motherMobile").val();
+					_data.homeAddress = $("#address").val();
+					_data.source = $("#source input:selected").text();
+					_data.majorMemo = $("#ablity").val();
+					_data.selfMemo = $("#self").val();
+
+					$.ajax({
+						url: _url,
+						type: "POST",
+						dataType: "text",
+						data: _data,
+						success: function(msg) {
+							console.log("服务器返回成功：" + msg);
+						},
+						error: function(error) {
+							console.log("错误：" + error);
+						}
+					})
+
+				})
+
+			})
+		&lt;/script&gt;
+
+	&lt;/body&gt;
+		</pre>
+	<p></p><a href="index.html">返回目录</a></p>
+	</body>
+</html>
