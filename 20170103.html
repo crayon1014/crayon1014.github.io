@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>jquery动画效果</h1>
+		<h3>1.上下联动</h3>
+		<pre>
+			$(document).ready(function(){
+				$(".tab>li").mouseenter(function(){
+					$(this).addClass("active").siblings().removeClass("active");
+					var idx=$(this).index();
+					$(".main").eq(idx).addClass("selected").siblings().removeClass("selected");
+				})
+			})
+		</pre>
+		<h3>2.轮播</h3>
+		<pre>
+	$(document).ready(function(){
+		var idx=0;
+		$(".wrap>ol>li").mouseenter(function(){
+			idx+=1
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".wrap>ul>li").eq($(this).index()).css({"left":650,"z-index":idx}).animate({"left":0},300);
+		})
+	})
+		</pre>
+		<h3>3.手风琴</h3>
+		<pre>
+			$(function() {
+				$(".wrap>ul>li").each(function(i, ele) {
+					$(this).css("background-image", "url(img/" + (i + 1) + ".jpg)");
+				}).mouseenter(function() {
+					$(this).stop().animate({
+						"width": 600
+					}, 300).siblings().stop().animate({
+						"width": 100
+					}, 300)
+				}).mouseleave(function() {
+					$("li").stop().animate({
+						"width": 200
+					}, 300)
+				})
+			})
+		</pre>
+		<h3>4.天猫导航</h3>
+		<pre>
+			$(function() {
+				$(window).scroll(function() {
+					var tp = $(document).scrollTop()
+					if(tp >= 1000) {
+						$("#bar").show(300)
+					} else {
+						$("#bar").hide(300)
+					}
+
+				})
+				$("#bar li").click(function() {
+					$(this).css("background", "#FFA500").siblings().css("background", "greenyellow")
+					$(document).scrollTop($(this).index() * 500 + 1000)
+				})
+			})
+		</pre>
+		<p><a href="index.html">返回目录</a></p>
+	</body>
+</html>
