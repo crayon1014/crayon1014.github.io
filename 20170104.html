@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>20170104</h1>
+		<h3>1、H5布局</h3>
+		<pre>
+		&lt;header&gt;&lt;header&gt;&lt;/header&gt;
+		&lt;nav&gt;&lt;nav&gt;&lt;/nav&gt;
+		&lt;section&gt;
+			&lt;section&gt;
+			&lt;article style="margin-top: 20px;"&gt;&lt;article&gt;&lt;/article&gt;
+			&lt;article&gt;&lt;article&gt;&lt;/article&gt;
+		&lt;/section&gt;
+		&lt;aside&gt;
+			&lt;aside&gt;
+			&lt;div class="widget" style="margin-top: 20px;"&gt;&lt;div class="widget"&gt;&lt;/div&gt;
+			&lt;div class="widget"&gt;&lt;div class="widget"&gt;&lt;/div&gt;
+		&lt;/aside&gt;
+		&lt;footer&gt;
+			&lt;footer&gt;
+		&lt;/footer&gt;	
+		</pre>
+		<p>结果:
+			<img src="http://image18.poco.cn/mypoco/myphoto/20170104/19/18442191220170104192436050.png"/>
+		</p>
+		<h3>2、SQLite的使用</h3>
+		<h4>2.1 SQLite 创建表</h4>
+		<pre>
+CREATE TABLE database_name.table_name(
+   column1 datatype  PRIMARY KEY(one or more columns),
+   column2 datatype,
+   column3 datatype,
+   .....
+   columnN datatype,
+);
+		</pre>
+		<h4>2.2 SQLite 删除表</h4>
+		<pre>
+DROP TABLE database_name.table_name;
+		</pre>
+		<h4>2.3 SQLite Insert 语句</h4>
+		<p>SQLite 的 INSERT INTO 语句用于向数据库的某个表中添加新的数据行。</p>
+		<pre>
+INSERT INTO TABLE_NAME (column1, column2, column3,...columnN)]  
+VALUES (value1, value2, value3,...valueN);
+		</pre>
+		<h4>2.4 SQLite Select 语句</h4>
+		<p>SQLite 的 SELECT 语句用于从 SQLite 数据库表中获取数据，以结果表的形式返回数据。这些结果表也被称为结果集。</p>
+		<pre>
+SELECT column1, column2, columnN FROM table_name;
+		</pre>
+		<h4>2.5 SQLite Update 语句</h4>
+		<p>SQLite 的 UPDATE 查询用于修改表中已有的记录。可以使用带有 WHERE 子句的 UPDATE 查询来更新选定行，否则所有的行都会被更新。</p>
+		<pre>
+UPDATE table_name
+SET column1 = value1, column2 = value2...., columnN = valueN
+WHERE [condition];
+		</pre>
+		<h4>2.6 SQLite Delete 语句</h4>
+		<p>SQLite 的 DELETE 查询用于删除表中已有的记录。可以使用带有 WHERE 子句的 DELETE 查询来删除选定行，否则所有的记录都会被删除。</p>
+		<pre>
+DELETE FROM table_name
+WHERE [condition];
+		</pre>
+		<h4>2.7 SQLite Limit 子句</h4>
+		<p>SQLite 的 LIMIT 子句用于限制由 SELECT 语句返回的数据数量。</p>
+		<pre>
+SELECT column1, column2, columnN 
+FROM table_name
+LIMIT [no of rows]
+		</pre>
+		<h4>2.8 SQLite Order By</h4>
+		<p>SQLite 的 ORDER BY 子句是用来基于一个或多个列按升序或降序顺序排列数据。</p>
+		<pre>
+SELECT column-list 
+FROM table_name 
+[WHERE condition] 
+[ORDER BY column1, column2, .. columnN] [ASC | DESC];
+		</pre>
+		<h4>2.9 SQLite Group By</h4>
+		<p>SQLite 的 GROUP BY 子句用于与 SELECT 语句一起使用，来对相同的数据进行分组。在 SELECT 语句中，GROUP BY 子句放在 WHERE 子句之后，放在 ORDER BY 子句之前。</p>
+		<pre>
+SELECT column-list
+FROM table_name
+WHERE [ conditions ]
+GROUP BY column1, column2....columnN
+ORDER BY column1, column2....columnN
+		</pre>
+		<p><a href="index.html">返回目录</a></p>
+	</body>
+</html>
